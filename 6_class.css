@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@400;500;600;700&display=swap'); 
+/*імпортуємо шрифт для сайту*/
+
+:root {
+    --sidebar-width: 280px; /* Залишено, як у вашому коді */
+    --content-max-width: 1000px; /* Максимальна ширина для основного контенту */
+    --footer-bg: #333842; /* Фон для футера */
+}
+
+/* ====================================================================== */
+/* 0. ОСНОВНІ СТИЛІ ТА КОНТЕЙНЕР */
+/* ====================================================================== */
+
+body {
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    /* КЛЮЧОВЕ: відступ для фіксованої навігації */
+    padding-left: var(--sidebar-width); 
+    margin: 0;
+    background-color: #b9b9b9;
+    min-height: 100vh;
+}
+
+.container {
+    /* ВИПРАВЛЕНО: Обмежуємо ширину і центруємо контент, що прокручується */
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 15px; /* Додано відступи від бічних країв */
+    width: 100%;
+    height: auto; /* Контейнер має рости по висоті */
+}
+
+/* ====================================================================== */
+/* 1. ФІКСОВАНА БІЧНА ПАНЕЛЬ (HEADER) - ОРИГІНАЛЬНІ СТИЛІ */
+/* ====================================================================== */
+
+header {
+    /* КЛЮЧОВЕ: position: fixed для фіксації */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
+    padding: 0;
+    background-color: #fcdb7e;
+    border-right: 1px solid #333842;
+    border-bottom: none;
+    z-index: 100;
+}
+
+.header-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    padding: 20px 0;
+}
+
+/* ЛОГОТИП */
+.logo {
+    font-weight: 700;
+    font-size: 40px;
+    color: white;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin: 0 auto 30px auto;
+    display: block;
+    text-align: center;
+    padding: 10px 0 0 0;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: #e0e0de;
+}
+
+/* НАВІГАЦІЯ */
+.nav {
+    flex-grow: 1;
+    position: relative;
+    width: 95%;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    position: relative;
+    text-align: left;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.nav-link {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 15px 25px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    background-color: #e0e0de;
+}
+
+.nav-item:hover > .nav-link {
+    color: black;
+    border-bottom-color: transparent;
+}
+
+/* ПІДМЕНЮ */
+.submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #e0e0de;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: var(--sidebar-width);
+    z-index: 20;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.submenu-link {
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+    padding: 10px 15px;
+}
+
+.submenu-item:hover .submenu-link {
+    background-color: #555555;
+    color: #ffffff;
+}
+
+.nav-item.has-submenu:hover .submenu {
+    display: block;
+    opacity: 1;
+}
+
+
+/*2 секція*/
+
+.description {
+	background-color: #cac8ad;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	min-height: 86vh;
+	display: flex;
+    
+    	/* КЛЮЧОВА ЗМІНА: Притискаємо вміст до початку (ліворуч) */
+    	justify-content: flex-start; 
+    
+    	/* КЛЮЧОВА ЗМІНА: Притискаємо вміст до початку (вгору) */
+    	align-items: flex-start; 
+    
+    	/* Додаємо внутрішній відступ 30px для всієї сірої області */
+    	padding: 30px; 
+    
+    	column-gap: 30px;
+}
+
+.description-description{
+	font-weight: 700;
+	font-size: 55px;
+	color: white;
+	text-shadow: 1px 1px 2px #000000;
+	text-align: center;
+	text-align: center; /* Залишаємо для вирівнювання тексту */
+    	/* Додаємо самовирівнювання, щоб перекрити будь-які ліві зміщення: */
+    	align-self: center;
+}
+
+.description-size{
+	font-weight: 200;
+	font-size: 24px;
+	color: white;
+	text-shadow: 1px 1px 2px #000000;
+	margin-top: 15px;
+    text-align: justify;	
+}
+
+.description-title {
+    display: block; 
+    margin: 0;
+    width: 100%; 
+    max-width: none; 
+    min-height: auto; 
+}
+
+.description-title p{
+	font-size: 17px;
+	color: #e8e8e8;
+	text-shadow: 1px 1px 2px #000000;
+	margin-top: 15px; 
+    	margin-bottom: 15px;
+}
+
+.download-link {
+    margin-top: 0;
+    font-size: 19px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    transition: color 0.3s;
+}
+
+.download-link:hover {
+    color: #356CBF;
+    text-decoration: none;
+}
+
+
+
+
+/*Додаткова інформація(якщо потрібна)*/
+
+.content{
+	background-color: #0e0f12;
+}
+
+.content-text{
+	color: white;
+	text-align: center;
+	font-size: 27px;
+	font-weight: bold;
+	padding: 15px 15px;	 
+}
+
+/*Футер*/
+
+.footer-row-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0 50px;
+    min-height: 50px;
+}
+
+.social-links-wrapper {
+    display: flex;
+    text-align: left;
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    font-weight: bold;
+}
+
+.footer-row-bottom p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
